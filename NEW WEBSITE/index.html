@@ -13,6 +13,7 @@
       --yellow-accent: #ffcb05;
       --purple-accent: #a04ba3;
       --white: #ffffff;
+      --dark-footer: #0c4338;
     }
 
     * {
@@ -28,7 +29,6 @@
       padding: 20px 10px;
     }
 
-    /* Main Container mimicking the circular dashed cover style */
     .website-card {
       max-width: 1100px;
       margin: 0 auto;
@@ -39,13 +39,13 @@
       overflow: hidden;
     }
 
-    /* Top Regional Address Bar */
     .top-bar {
       background-color: #1a8f76;
       color: var(--white);
       padding: 12px 5%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
       gap: 10px;
       font-size: 0.85rem;
@@ -67,7 +67,6 @@
       text-transform: uppercase;
     }
 
-    /* Header Navigation */
     header {
       background-color: var(--white);
       padding: 15px 5%;
@@ -75,6 +74,9 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 5px solid var(--pink-accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .header-logo img {
@@ -86,15 +88,16 @@
     nav ul {
       display: flex;
       list-style: none;
-      gap: 20px;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
     nav a {
       text-decoration: none;
       color: var(--text-dark);
       font-weight: bold;
-      font-size: 0.95rem;
-      padding: 8px 16px;
+      font-size: 0.9rem;
+      padding: 6px 12px;
       border-radius: 20px;
       transition: all 0.3s ease;
     }
@@ -103,7 +106,46 @@
       background-color: var(--yellow-accent);
     }
 
-    /* Hero Banner displaying Cover Graphic */
+    /* Top Video Banner */
+    .video-banner {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      overflow: hidden;
+      border-bottom: 5px dashed var(--yellow-accent);
+    }
+
+    .video-banner video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(18, 77, 64, 0.55);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .video-overlay h2 {
+      font-size: 2.5rem;
+      color: var(--yellow-accent);
+      margin-bottom: 10px;
+    }
+
+    .video-overlay p {
+      font-size: 1.2rem;
+      max-width: 700px;
+    }
+
+    /* Hero Banner Layout */
     .hero-container {
       display: flex;
       align-items: center;
@@ -155,110 +197,76 @@
       box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     }
 
-    /* Creative Lines / Taglines Section */
-    .creative-lines-section {
-      padding: 30px 5%;
-      text-align: center;
+    /* Content Section Styling */
+    .content-section {
+      padding: 35px 5%;
     }
 
     .section-title {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       color: #106654;
+      text-align: center;
       margin-bottom: 25px;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
-    .lines-grid {
+    .grid-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
     }
 
-    .line-card {
-      background-color: var(--white);
-      padding: 25px 20px;
-      border-radius: 25px;
+    .card {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 20px;
       border: 3px dashed var(--mint-bg-outer);
       box-shadow: 0 6px 15px rgba(0,0,0,0.04);
-      transition: transform 0.3s ease;
+      text-align: center;
     }
 
-    .line-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .line-card:nth-child(2) { border-color: var(--pink-accent); }
-    .line-card:nth-child(3) { border-color: var(--yellow-accent); }
-
-    .line-icon {
-      font-size: 2.2rem;
+    .card h3 {
+      color: var(--pink-accent);
       margin-bottom: 10px;
+      font-size: 1.15rem;
     }
 
-    .line-card p {
-      font-size: 1.05rem;
+    .logo-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+      background: var(--white);
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .logo-badge {
+      background: var(--mint-bg-inner);
+      padding: 10px 20px;
+      border-radius: 12px;
       font-weight: bold;
       color: var(--text-dark);
-      line-height: 1.4;
+      border: 1px solid #1a8f76;
     }
 
-    /* Maria Montessori Philosophy Section */
-    .montessori-section {
-      background-color: var(--white);
-      margin: 30px 5%;
-      padding: 40px 35px;
-      border-radius: 30px;
-      border-left: 10px solid var(--purple-accent);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    /* Detailed Legal & Trademark Notice */
+    .trademark-disclaimer {
+      background-color: #fcf8e3;
+      border: 2px dashed #faebcc;
+      color: #8a6d3b;
+      padding: 20px 5%;
+      margin: 20px 5%;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      line-height: 1.6;
     }
 
-    .montessori-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
-
-    .montessori-header h2 {
-      font-size: 1.8rem;
-      color: var(--purple-accent);
-    }
-
-    .montessori-section p {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 15px;
-    }
-
-    .montessori-pillars {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-      margin-top: 25px;
-    }
-
-    .pillar-box {
-      background-color: var(--mint-bg-inner);
-      padding: 18px;
-      border-radius: 18px;
-      border-left: 4px solid #1a8f76;
-    }
-
-    .pillar-box h4 {
-      color: #106654;
-      margin-bottom: 6px;
-      font-size: 1.05rem;
-    }
-
-    .pillar-box p {
-      font-size: 0.95rem;
-      margin-bottom: 0;
-    }
-
-    /* Footer */
+    /* Footer Section with Logo Badge Layout */
     footer {
-      background-color: #106654;
+      background-color: var(--dark-footer);
       color: var(--white);
       padding: 40px 5% 20px;
       margin-top: 40px;
@@ -266,27 +274,50 @@
 
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
       margin-bottom: 25px;
+      align-items: center;
     }
 
     .footer-card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 22px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 15px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .footer-card h3 {
       color: var(--yellow-accent);
-      margin-bottom: 10px;
-      font-size: 1.1rem;
+      margin-bottom: 12px;
     }
 
-    .footer-card p {
-      font-size: 0.95rem;
-      line-height: 1.6;
+    .footer-logo-card {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 20px;
+      border-radius: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-badge-img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: var(--white);
+      padding: 5px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      margin-bottom: 10px;
+    }
+
+    .footer-logo-card p {
+      font-size: 0.8rem;
+      color: var(--yellow-accent);
+      font-weight: bold;
     }
 
     .copyright {
@@ -310,7 +341,7 @@
       </div>
       <div class="address-tag">
         <span class="flag-badge">India</span>
-        <span>B40304 EBONY GREENS SARE HOMES NH7 201002</span>
+        <span>B4-304, Ebony Greens, Sare Homes, Crescent Park, Ghaziabad, UP 201002</span>
       </div>
     </div>
 
@@ -322,12 +353,26 @@
       <nav>
         <ul>
           <li><a href="#home">Home</a></li>
-          <li><a href="#philosophy">Our Philosophy</a></li>
-          <li><a href="#montessori">Dr. Maria Montessori</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#video-tour">Video Tour</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#blog">Latest News</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
+
+    <!-- Top Video Banner -->
+    <section class="video-banner">
+      <video autoplay loop muted playsinline poster="assets/logos/cover.jpg">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-children-playing-with-toys-in-a-kindergarten-43285-large.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay">
+        <h2>Welcome to Cambridge Tots</h2>
+        <p>A World-Class Montessori Early Learning Center & Daycare Chain</p>
+      </div>
+    </section>
 
     <!-- Hero Section -->
     <section class="hero-container" id="home">
@@ -341,74 +386,137 @@
       </div>
     </section>
 
-    <!-- Creative Preschool Lines -->
-    <section class="creative-lines-section" id="philosophy">
-      <h2 class="section-title">Whimsical Little Words</h2>
-      <div class="lines-grid">
-        <div class="line-card">
-          <div class="line-icon">🧸</div>
-          <p>"Little hands exploring today, big dreamers shaping tomorrow."</p>
+    <!-- The Power of Early Childhood Education Section -->
+    <section class="content-section">
+      <h2 class="section-title">The Power of Early Childhood Education</h2>
+      <p style="text-align: center; max-width: 800px; margin: 0 auto 25px; line-height: 1.6;">
+        Over 90% of a child's brain development occurs before age 5. Our play-based Montessori framework builds crucial cognitive, physical, and emotional foundations for life.
+      </p>
+    </section>
+
+    <!-- Our Services Section -->
+    <section class="content-section" id="services">
+      <h2 class="section-title">Our Offerings & Programs</h2>
+      <div class="grid-cards">
+        <div class="card">
+          <h3>Playway Group</h3>
+          <p>Sensory exploration, motor activity, and foundational social skills for early learners.</p>
         </div>
-        <div class="line-card">
-          <div class="line-icon">🦒</div>
-          <p>"Learning is a joyful adventure when curiosity leads the way!"</p>
+        <div class="card">
+          <h3>Nursery</h3>
+          <p>Language building, creative arts, and introductory phonics in a fun environment.</p>
         </div>
-        <div class="line-card">
-          <div class="line-icon">🎨</div>
-          <p>"Every child is a unique star, ready to shine in their own vibrant colors."</p>
+        <div class="card">
+          <h3>Kindergarten (LKG/UKG)</h3>
+          <p>Structured preparation for primary school with analytical and reading focus.</p>
+        </div>
+        <div class="card">
+          <h3>Daycare Facilities</h3>
+          <p>Safe, hygienic, and engaging after-school care with balanced routines and meals.</p>
         </div>
       </div>
     </section>
 
-    <!-- Dr. Maria Montessori Section -->
-    <section class="montessori-section" id="montessori">
-      <div class="montessori-header">
-        <span style="font-size: 2rem;">🌸</span>
-        <h2>Dr. Maria Montessori & Her Vision</h2>
-      </div>
-      <p>
-        Dr. Maria Montessori was a pioneering Italian physician and educator who transformed early childhood learning worldwide. She recognized that children learn best when given the freedom to explore independently within a structured, loving environment.
-      </p>
-      <p>
-        At <strong>Cambridge Tots</strong>, we honor her timeless ethos: <em>"Help me to do it by myself."</em> Our child-centered curriculum encourages problem-solving, emotional growth, and practical life skills tailored to each child's natural pace.
-      </p>
+<!-- Video Tour Section -->
+<section class="content-section" id="video-tour" style="background: var(--white); border-radius: 25px; margin: 0 5%;">
+  <h2 class="section-title">Campus Video Tour</h2>
+  <div style="text-align: center; padding: 20px;">
+    <p style="margin-bottom: 15px;">Experience our child-friendly Montessori environment virtually.</p>
+    
+    <!-- Embedded Video Player -->
+    <video controls poster="assets/logos/cover.jpg" style="width: 100%; max-width: 700px; height: auto; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+      <source src="assets/videos/campus-tour.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-      <div class="montessori-pillars">
-        <div class="pillar-box">
-          <h4>Child-Centered Freedom</h4>
-          <p>Empowering children to choose activities that match their natural interests.</p>
+  </div>
+</section>
+
+    <!-- Parent Testimonials Section -->
+    <section class="content-section" id="testimonials">
+      <h2 class="section-title">What Parents Say</h2>
+      <div class="grid-cards">
+        <div class="card">
+          <p>"Hi Ma'am... paavni's father this side...I would like to appreciate you and your staff as they did great job. Especially, Priyanka Ma'am, I didn't get much time to say thank her. My daughter has been studying in the school from last 3 months. I have noticed many changes in her personality. Those are positive. I am expecting the same thing from you guys in forth coming months as well. One more request, paavni is intelligent and grasping thing instantly, please get herself utilized as much as you can. Again ..you and staff are doing very good job..."</p>
+          <strong style="display:block; margin-top: 10px; color: var(--purple-accent);">- Parent Review</strong>
         </div>
-        <div class="pillar-box">
-          <h4>Prepared Environment</h4>
-          <p>Classrooms crafted with kid-sized tools that invite hands-on exploration.</p>
-        </div>
-        <div class="pillar-box">
-          <h4>Sensory Learning</h4>
-          <p>Tactile materials that turn abstract ideas into playful, concrete understanding.</p>
+        <div class="card">
+          <p>"The Montessori learning methodology made learning natural and joyful for our daughter."</p>
+          <strong style="display:block; margin-top: 10px; color: var(--purple-accent);">- Satisfied Parent</strong>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Knowledge Partners & Accreditations Section -->
+    <section class="content-section">
+      <h2 class="section-title">Accreditations & Knowledge Partners</h2>
+      <div class="logo-strip">
+        <div class="logo-badge">Montessori Standards</div>
+        <div class="logo-badge">International Preschool Alliance</div>
+        <div class="logo-badge">MSME Registered Entity</div>
+        <div class="logo-badge">Early Childhood Care Association</div>
+      </div>
+    </section>
+
+    <!-- Media Recognition & Alumni Section -->
+    <section class="content-section">
+      <h2 class="section-title">Media Recognition & Student Alumni</h2>
+      <div class="grid-cards">
+        <div class="card">📰 Top Media House Recognition</div>
+        <div class="card">🎓 Student Alumni Network</div>
+        <div class="card">📸 Activity Image Gallery</div>
+      </div>
+    </section>
+
+    <!-- Latest Blog, News & Diaries -->
+    <section class="content-section" id="blog">
+      <h2 class="section-title">Latest Blog, News & Diaries</h2>
+      <div class="grid-cards">
+        <div class="card">
+          <h3>Parenting in Early Years</h3>
+          <p>Check out our latest news, updates, diaries, and articles on fostering independence at home.</p>
+        </div>
+        <div class="card">
+          <h3>Montessori at Home</h3>
+          <p>Simple strategies to bring sensory learning and structure to your child's playroom.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legal Notice & Trademark Disclaimer Banner -->
+    <div class="trademark-disclaimer">
+      <strong>Intellectual Property & Trademark Legal Notice:</strong><br>
+      The mark <strong>CAMBRIDGE TOTS</strong> and its brand logos are protected intellectual property of <strong>Awnish Rathaur</strong> under the Trade Marks Act, 1999[cite: 3, 4]. First published in <em>Trade Marks Journal No. 1933</em> on 23/12/2019 (Application No. 4270519)[cite: 4] and continuously utilized in commercial operation since December 23, 2019[cite: 3]. Refiled under Application No. <strong>7931590</strong> (Class 41, Form TM-A filed on 15/08/2026, status under Vienna Codification)[cite: 3].<br><br>
+      <em>Disclaimer:</em> Any unauthorized use, imitation, reproduction, or passing off of this trademark, logo, or trade name without prior written authorization is strictly prohibited and subject to legal action under the Indian Legal System and MSME protection guidelines.
+    </div>
+
+    <!-- Footer Banner with Circular Logo Emblem -->
     <footer id="contact">
       <div class="footer-grid">
-        <div class="footer-card">
-          <h3>🇦🇺 Australian Regional Address</h3>
-          <p>
-            141 Golf Links Road<br>
-            Berwick, Victoria 3806<br>
-            Australia
-          </p>
+        
+        <!-- Circular Badge Logo Embed -->
+        <div class="footer-logo-card">
+          <img src="assets/logos/CTSquare_2.png" alt="Cambridge Tots Round Emblem" class="footer-badge-img">
+          <p>Official Brand Seal</p>
         </div>
+
         <div class="footer-card">
-          <h3>🇮🇳 Indian Corporate Address</h3>
-          <p>
-            B40304 EBONY GREENS SARE HOMES<br>
-            NH7, PIN: 201002<br>
-            Uttar Pradesh, India
-          </p>
+          <h3>🇦🇺 Australian Office</h3>
+          <p>141 Golf Links Road<br>Berwick, Victoria 3806<br>Australia</p>
         </div>
+
+        <div class="footer-card">
+          <h3>🇮🇳 Indian Corporate Center</h3>
+          <p>B4-304, Ebony Greens, Sare Homes<br>Crescent Park, Ghaziabad, UP 201002<br>India</p>
+        </div>
+
+        <div class="footer-card">
+          <h3>Admissions & Contact</h3>
+          <p>Admissions Open 2026-27<br>Email: info@cambridgetots.com<br>Proprietor: Awnish Rathaur<br>Registered MSME Entity</p>
+        </div>
+
       </div>
+
       <div class="copyright">
         &copy; 2026 Cambridge Tots — An Australian Pre-School Chain. All Rights Reserved.
       </div>
