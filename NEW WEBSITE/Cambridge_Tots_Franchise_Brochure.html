@@ -1,0 +1,400 @@
+brochure_html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambridge Tots - Franchise Opportunity Brochure</title>
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-dark: #C59B27;
+            --gold-light: #FDF9EE;
+            --charcoal: #2C2C2C;
+            --charcoal-light: #3D3D3D;
+            --copper: #B87333;
+            --copper-light: #FAF0E6;
+            --bg-body: #F4F1EA;
+            --white: #FFFFFF;
+            --gray-border: #E0DBCD;
+        }
+
+        @page {
+            size: A4;
+            margin: 12mm;
+            @bottom-right {
+                content: "Cambridge Tots Franchise Brochure";
+                font-family: 'Helvetica Neue', Arial, sans-serif;
+                font-size: 8pt;
+                color: var(--copper);
+                font-weight: bold;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 10pt;
+            line-height: 1.5;
+            color: var(--charcoal);
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .brochure-card {
+            position: relative;
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 35px 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            border-top: 8px solid var(--gold);
+            border-bottom: 8px solid var(--copper);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        /* Watermark */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: 70%;
+            opacity: 0.06;
+            pointer-events: none;
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .watermark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 25px 20px;
+            text-align: center;
+            border-radius: 5px;
+            border-bottom: 4px solid var(--gold);
+            margin-bottom: 25px;
+        }
+
+        .hero-banner img {
+            max-width: 90px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 24pt;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .hero-subtitle {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            font-weight: 600;
+            color: var(--copper-light);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+
+        .hero-tagline {
+            font-size: 9.5pt;
+            color: #DDD;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Section Titles */
+        h2 {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 12pt;
+            font-weight: bold;
+            color: var(--white);
+            background-color: var(--copper);
+            padding: 8px 14px;
+            margin-top: 22px;
+            margin-bottom: 12px;
+            border-left: 5px solid var(--gold);
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* Highlight Boxes Grid */
+        .grid-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 12px;
+            margin: -6px -12px;
+        }
+
+        .grid-card {
+            width: 50%;
+            background-color: var(--gold-light);
+            border: 1px solid var(--gold);
+            border-radius: 5px;
+            padding: 14px;
+            vertical-align: top;
+        }
+
+        .grid-card-title {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            color: var(--charcoal);
+            font-size: 10.5pt;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--copper);
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+        }
+
+        /* Tables */
+        table.styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            font-size: 9.5pt;
+        }
+
+        table.styled-table th {
+            background-color: var(--charcoal);
+            color: var(--gold);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: left;
+            padding: 10px 12px;
+            border: 1px solid var(--charcoal);
+        }
+
+        table.styled-table td {
+            padding: 9px 12px;
+            border: 1px solid var(--gray-border);
+            vertical-align: top;
+            background-color: var(--white);
+        }
+
+        table.styled-table tr:nth-child(even) td {
+            background-color: #FAF8F5;
+        }
+
+        .badge-copper {
+            display: inline-block;
+            background-color: var(--copper);
+            color: var(--white);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 8.5pt;
+            font-weight: bold;
+        }
+
+        .badge-gold {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--charcoal);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 8.5pt;
+            font-weight: bold;
+        }
+
+        /* Call to Action Box */
+        .cta-box {
+            background-color: var(--charcoal);
+            color: var(--white);
+            border: 2px solid var(--gold);
+            padding: 20px;
+            text-align: center;
+            border-radius: 6px;
+            margin-top: 25px;
+        }
+
+        .cta-title {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 14pt;
+            font-weight: bold;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .cta-desc {
+            font-size: 9.5pt;
+            color: var(--gold-light);
+            margin-bottom: 14px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--charcoal);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--copper);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="brochure-card">
+
+        <!-- Watermark -->
+        <div class="watermark">
+            <img src="ctots_v.jpg" alt="Cambridge Tots Watermark" onerror="this.style.display='none'">
+        </div>
+
+        <div class="content">
+
+            <!-- Hero Section -->
+            <div class="hero-banner">
+                <img src="ctots_v.jpg" alt="Cambridge Tots Logo" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' fill=\'%23D4AF37\'/><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%232C2C2C\' font-weight=\'bold\' font-size=\'14\'>LOGO</text></svg>';">
+                <div class="hero-title">CAMBRIDGE TOTS ™</div>
+                <div class="hero-subtitle">The Future of Early Childhood Education</div>
+                <div class="hero-tagline">Empowering Edu-Entrepreneurs | Zero-Royalty Revenue Model | High-Yield Brand Equity</div>
+            </div>
+
+            <!-- Why Partner Section -->
+            <h2>1. Why Partner With Cambridge Tots?</h2>
+            <p>Opening a preschool with <strong>Cambridge Tots</strong> gives you access to a premier early-childhood learning brand backed by solid legal protection, continuous academic support, and a high-margin operational framework designed to maximize your profit potential.</p>
+
+            <table class="grid-table">
+                <tr>
+                    <td class="grid-card">
+                        <div class="grid-card-title">Exclusive Radial Territory</div>
+                        Guaranteed <strong>2.5 KM Radial Exclusivity Zone</strong> surrounding your center. No competing Cambridge Tots franchise will be allowed in your territory.
+                    </td>
+                    <td class="grid-card">
+                        <div class="grid-card-title">Zero Monthly Royalty Audits</div>
+                        Keep 100% of your recurring monthly tuition fees! We do not inspect financial books or charge traditional percentage-based royalties.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="grid-card">
+                        <div class="grid-card-title">Local Production Authorization</div>
+                        Eliminate heavy franchise markups! You receive full authorization to locally manufacture school bags, uniforms, ID cards, workbooks, and signage.
+                    </td>
+                    <td class="grid-card">
+                        <div class="grid-card-title">Fortified Legal & IP Protection</div>
+                        Operate with complete peace of mind under an established brand holding prior continuous commercial user rights under the Trade Marks Act, 1999.
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Commercial Terms -->
+            <h2>2. Franchise Commercial Terms & High Margins</h2>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Investment Term</th>
+                        <th>Franchisee Commercial Terms</th>
+                        <th>Strategic Advantage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>One-Time License Fee</strong></td>
+                        <td><strong style="color: var(--copper); font-size: 10.5pt;">₹2,50,000/-</strong> (+ applicable taxes)</td>
+                        <td>Grants exclusive 5-year brand rights & full master digital collateral.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Royalty Replacement</strong></td>
+                        <td><span class="badge-gold">₹0 Revenue Share</span> | ₹10,000/- per kit</td>
+                        <td>Pay only per student kit purchased. Zero audits on tuition revenue.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Local Manufacturing</strong></td>
+                        <td><span class="badge-copper">100% Vendor Freedom</span></td>
+                        <td>Print bags, uniforms, workbooks, and signage locally to save up to 40% cost.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Agreement Duration</strong></td>
+                        <td><strong>5 Years (Renewable)</strong></td>
+                        <td>Long-term operational security with hassle-free renewal policies.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Comprehensive Support -->
+            <h2>3. End-to-End Franchisor Support Network</h2>
+            <table class="grid-table">
+                <tr>
+                    <td class="grid-card">
+                        <div class="grid-card-title">Academic & Pedagogy</div>
+                        Research-backed early childhood curriculum, day-wise lesson plans, activity schedules, and comprehensive teacher manuals.
+                    </td>
+                    <td class="grid-card">
+                        <div class="grid-card-title">Master Soft Copies</div>
+                        High-resolution digital master files for prospectuses, artwork, flex boards, signages, and social media promo kits.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="grid-card">
+                        <div class="grid-card-title">Teacher & Staff Training</div>
+                        Specialized onboarding programs, pedagogical orientation, and continuous skill enrichment modules for your teaching staff.
+                    </td>
+                    <td class="grid-card">
+                        <div class="grid-card-title">Operational SOP Guidance</div>
+                        Proven admission pipelines, student onboarding protocols, parent-teacher interaction frameworks, and safety SOPs.
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Call to Action -->
+            <div class="cta-box">
+                <div class="cta-title">Lock Your Exclusive Territory Today!</div>
+                <div class="cta-desc">High-potential residential areas are filling up fast. Secure your 2.5 KM radial territory before another applicant claims your city area.</div>
+                <a href="mailto:franchise@cambridgetots.com" class="cta-btn">Apply For Franchise Now</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+"""
+
+# Save brochure file
+brochure_filename = "Cambridge_Tots_Franchise_Brochure.html"
+with open(brochure_filename, "w", encoding="utf-8") as f:
+    f.write(brochure_html)
+
+print(f"Brochure file saved as {brochure_filename}")
+
+Code output
