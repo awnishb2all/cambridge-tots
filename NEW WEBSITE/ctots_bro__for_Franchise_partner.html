@@ -1,0 +1,543 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambridge Tots | Franchise Opportunity Presentation & Commercial Brochure</title>
+  <style>
+    :root {
+      --charcoal-bg: #1a1d20;
+      --charcoal-card: #24282e;
+      --charcoal-light: #2e343b;
+      --gold-primary: #d4af37;
+      --gold-hover: #f3e5ab;
+      --copper-accent: #b85a3a;
+      --copper-glow: #d96b43;
+      --text-light: #f5f5f7;
+      --text-muted: #b0b5bc;
+      --white: #ffffff;
+      --border-gold: rgba(212, 175, 55, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--charcoal-bg);
+      color: var(--text-light);
+      line-height: 1.6;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background-color: var(--charcoal-card);
+      border-radius: 16px;
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background-color: #111315;
+      color: var(--text-muted);
+      padding: 12px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #333;
+    }
+
+    .location-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-country {
+      background-color: var(--copper-accent);
+      color: var(--white);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--charcoal-card);
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--gold-primary);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .header-logo img {
+      max-height: 55px;
+      width: auto;
+      background: #ffffff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .header-title {
+      text-align: right;
+    }
+
+    .header-title h4 {
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.95rem;
+    }
+
+    .header-title p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Cover / Hero Pitch */
+    .hero-pitch {
+      padding: 50px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      background: linear-gradient(135deg, rgba(184, 90, 58, 0.1) 0%, rgba(36, 40, 46, 1) 100%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .pitch-content {
+      flex: 1 1 450px;
+    }
+
+    .opportunity-badge {
+      display: inline-block;
+      background: var(--copper-accent);
+      color: var(--white);
+      padding: 4px 14px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .pitch-content h1 {
+      font-size: 2.3rem;
+      color: var(--gold-primary);
+      line-height: 1.25;
+      margin-bottom: 15px;
+    }
+
+    .pitch-content p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 25px;
+    }
+
+    .pitch-visual {
+      flex: 1 1 320px;
+      text-align: center;
+    }
+
+    .pitch-visual img {
+      max-width: 100%;
+      height: auto;
+      max-height: 340px;
+      border-radius: 12px;
+      border: 2px solid var(--gold-primary);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    /* Section Typography */
+    .section-padding {
+      padding: 45px 5%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto 30px;
+      font-size: 0.95rem;
+    }
+
+    .title-line {
+      width: 50px;
+      height: 2px;
+      background: var(--copper-accent);
+      margin: 8px auto 20px;
+    }
+
+    /* Grid Layouts */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background-color: var(--charcoal-light);
+      padding: 22px;
+      border-radius: 8px;
+      border-top: 3px solid var(--gold-primary);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .feature-card h3 {
+      color: var(--gold-primary);
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Table Styling for Commercial Models */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--charcoal-light);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th {
+      background-color: #1a1d20;
+      color: var(--gold-primary);
+      text-align: left;
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid var(--copper-accent);
+    }
+
+    td {
+      padding: 14px 18px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Highlights Strip */
+    .badge-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .pill-badge {
+      background: var(--charcoal-bg);
+      border: 1px solid var(--copper-accent);
+      color: var(--text-light);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    /* Legal Notice Block */
+    .legal-notice {
+      background-color: rgba(184, 90, 58, 0.12);
+      border: 1px solid var(--copper-accent);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 30px 5%;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .legal-notice strong {
+      color: var(--gold-primary);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111315;
+      padding: 40px 5% 20px;
+      border-top: 2px solid var(--copper-accent);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .footer-col {
+      background: var(--charcoal-card);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-col h4 {
+      color: var(--gold-primary);
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .footer-col p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .logo-seal-card {
+      text-align: center;
+      background: var(--charcoal-card);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border-gold);
+    }
+
+    .logo-seal-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: var(--white);
+      padding: 4px;
+      margin-bottom: 8px;
+    }
+
+    .logo-seal-card p {
+      color: var(--gold-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Top Address Bar -->
+    <div class="top-bar">
+      <div class="location-tag">
+        <span class="badge-country">Australia</span>
+        <span>141 Golf Links Road Berwick, Victoria 3806 Australia</span>
+      </div>
+      <div class="location-tag">
+        <span class="badge-country">India</span>
+        <span>B4-304, Ebony Greens, Sare Homes, Crescent Park, Ghaziabad, UP 201002</span>
+      </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+      <div class="header-logo">
+        <img src="assets/logos/ctots-linear_3.png" alt="Cambridge Tots Logo">
+      </div>
+      <div class="header-title">
+        <h4>Franchise Partner Deck</h4>
+        <p>Commercial & Operational Opportunity</p>
+      </div>
+    </header>
+
+    <!-- Pitch Banner -->
+    <section class="hero-pitch">
+      <div class="pitch-content">
+        <span class="opportunity-badge">Franchise Expansion 2026–27</span>
+        <h1>Partner with a Global Montessori Pre-School Chain</h1>
+        <p>Invest in early childhood education backed by Australian pre-school operational frameworks, Montessori standards, and high-demand daycare services.</p>
+      </div>
+      <div class="pitch-visual">
+        <img src="assets/logos/cover_3.png" alt="Cambridge Tots Cover Artwork">
+      </div>
+    </section>
+
+    <!-- Business Value Proposition -->
+    <section class="section-padding">
+      <h2 class="section-title">Why Invest in Cambridge Tots?</h2>
+      <div class="title-line"></div>
+      <p class="section-subtitle">Early childhood care is one of the fastest-growing education sectors. Over 90% of critical brain development happens before age 5, creating high demand for structured early education.</p>
+      
+      <div class="cards-grid">
+        <div class="feature-card">
+          <h3>International Curriculum</h3>
+          <p>Montessori play-based framework combining sensory exploration, phonics, and foundational cognitive development.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Dual Revenue Streams</h3>
+          <p>Maximize campus utilization with combined Pre-School (Morning) and Daycare / Activity Center (Afternoon) models.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Protected Trademark</h3>
+          <p>Operate under a legally registered Class 41 trademark, giving your local unit brand authority and market credibility[cite: 3, 4].</p>
+        </div>
+        <div class="feature-card">
+          <h3>End-to-End Support</h3>
+          <p>Receive complete assistance in campus setup, teacher training, marketing collateral, and operational workflows.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Educational Programs & Offerings Table -->
+    <section class="section-padding">
+      <h2 class="section-title">Educational Offerings & Age Models</h2>
+      <div class="title-line"></div>
+      <p class="section-subtitle">Our flexible academic framework covers multiple age segments to ensure recurring enrollment.</p>
+      
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Program</th>
+              <th>Target Age Group</th>
+              <th>Curriculum Core Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Playway Group</strong></td>
+              <td>1.5 – 2.5 Years</td>
+              <td>Sensory exploration, motor skill refinement, and basic social interaction.</td>
+            </tr>
+            <tr>
+              <td><strong>Nursery</strong></td>
+              <td>2.5 – 3.5 Years</td>
+              <td>Language enrichment, creative arts, and introductory Montessori phonics.</td>
+            </tr>
+            <tr>
+              <td><strong>Kindergarten (LKG/UKG)</strong></td>
+              <td>3.5 – 5.5 Years</td>
+              <td>Analytical thinking, pre-primary literacy, numbers, and primary school readiness.</td>
+            </tr>
+            <tr>
+              <td><strong>Daycare Facilities</strong></td>
+              <td>1.5 – 8.0 Years</td>
+              <td>Hygienic, safe extended care with structured play, rest routines, and meals.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Franchisee Support Matrix -->
+    <section class="section-padding">
+      <h2 class="section-title">Operational & Marketing Support</h2>
+      <div class="title-line"></div>
+      
+      <div class="cards-grid">
+        <div class="feature-card">
+          <h3>Infrastructure Design</h3>
+          <p>Floor planning, safety compliance guidance, and Montessori learning materials specification.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Teacher Training</h3>
+          <p>Structured recruitment guidelines and continuous skill development programs for faculty.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Marketing Blueprints</h3>
+          <p>Access to promotional brochures, digital templates, and parent acquisition campaign strategies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accreditations Strip -->
+    <section class="section-padding">
+      <h2 class="section-title">Accreditations & Network Standards</h2>
+      <div class="title-line"></div>
+      <div class="badge-strip">
+        <span class="pill-badge">Montessori Standards Compliant</span>
+        <span class="pill-badge">International Preschool Standards</span>
+        <span class="pill-badge">MSME Registered Enterprise</span>
+        <span class="pill-badge">Class 41 Trademark Protected[cite: 3, 4]</span>
+      </div>
+    </section>
+
+    <!-- Legal Notice & Intellectual Property Disclaimer -->
+    <div class="legal-notice">
+      <strong>Intellectual Property & Legal Notice:</strong><br>
+      The brand name <strong>CAMBRIDGE TOTS</strong> and associated logos are registered intellectual property of <strong>Awnish Rathaur</strong> under the Trade Marks Act, 1999 (Application No. 4270519, Journal No. 1933[cite: 4]; Refiled TM-A No. 7931590, Class 41[cite: 3]). Unauthorized use or duplication of these brand assets without an executed franchise agreement is strictly prohibited under Indian and international intellectual property laws[cite: 3, 4].
+    </div>
+
+    <!-- Footer / Contact Commercial Section -->
+    <footer>
+      <div class="footer-grid">
+        
+        <div class="logo-seal-card">
+          <img src="assets/logos/CTSquare_2_7.png" alt="Cambridge Tots Round Emblem">
+          <p>Official Brand Seal</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>🇦🇺 Australian Headquarters</h4>
+          <p>141 Golf Links Road<br>Berwick, Victoria 3806<br>Australia</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>🇮🇳 Indian Corporate Center</h4>
+          <p>B4-304, Ebony Greens, Sare Homes<br>Crescent Park, Ghaziabad, UP 201002<br>India</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Commercial Inquiries</h4>
+          <p>Franchise Intake 2026–27<br>Email: info@cambridgetots.com<br>Proprietor: Awnish Rathaur<br>MSME Registered Enterprise</p>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        &copy; 2026 Cambridge Tots — An Australian Pre-School Chain. All Rights Reserved.
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
